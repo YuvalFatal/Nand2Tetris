@@ -15,7 +15,16 @@ CHIP RAM8 {
     OUT out[16];
 
     PARTS:
-    DMux8Way(in=load, sel=address, );
-	Mux8Way16(a=loop, b=in, sel=answer, out=answer2);
-	Register(in=answer2, load=load, out=out, out=loop);
+    DMux8Way(in=load, sel=address, a=a0, b=b0, c=c0, d=d0, e=e0, f=f0, g=g0, h=h0);
+	
+    Register(in=in, load=a0, out=answer0);
+    Register(in=in, load=b0, out=answer1);
+    Register(in=in, load=c0, out=answer2);
+    Register(in=in, load=d0, out=answer3);
+    Register(in=in, load=e0, out=answer4);
+    Register(in=in, load=f0, out=answer5);
+    Register(in=in, load=g0, out=answer6);
+    Register(in=in, load=h0, out=answer7);
+	
+    Mux8Way16(a=answer0, b=answer1, c=answer2, d=answer3, e=answer4, f=answer5, g=answer6, h=answer7, sel=address, out=out);
 }
