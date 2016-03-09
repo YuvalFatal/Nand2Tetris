@@ -13,14 +13,14 @@
 	@index
 	M=D
 (LOOP)
-	@KBD
-	D=M
-	@BLACK
-	D;JGT
 	@SCREEN
 	D=A
 	@index
 	M=D
+	@KBD
+	D=M
+	@BLACK
+	D;JGT
 	@SCREEN
 	D=M
 	@WHITE
