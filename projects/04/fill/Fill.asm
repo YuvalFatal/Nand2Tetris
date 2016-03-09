@@ -12,22 +12,22 @@
 	D=A
 	@index
 	M=D
-	@pixel
-	M=0
 (LOOP)
 	@KBD
 	D=M
-	@LOOP2
+	@BLACK
 	D;JGT
 	@SCREEN
 	D=A
 	@index
 	M=D
-	@pixel
-	M=0
+	@SCREEN
+	D=M
+	@WHITE
+	D;JGT
 	@LOOP
 	0;JMP
-(LOOP2)
+(BLACK)
 	@KBD
 	D=M
 	@LOOP
@@ -40,10 +40,28 @@
 	D;JEQ
 	@index
 	D=M
-	@SCREEN
 	A=D
 	M=-1
 	@index
+	M=M+1
+	@BLACK
+	0;JMP
+(WHITE)
+	@KBD
+	D=M
+	@LOOP
+	D;JGT
+	@index
+	D=M
+	@KBD
+	D=D-A
+	@LOOP
+	D;JEQ
+	@index
+	D=M
+	A=D
 	M=0
-	@LOOP2
+	@index
+	M=M+1
+	@WHITE
 	0;JMP
