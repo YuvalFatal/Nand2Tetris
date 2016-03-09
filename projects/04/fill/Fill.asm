@@ -24,7 +24,7 @@
 	@SCREEN
 	D=M
 	@WHITE
-	D;JGT
+	D;JLT
 	@LOOP
 	0;JMP
 (BLACK)
